@@ -23,26 +23,26 @@ rows = ws.max_row
 
 # Shifting the columns
 ws.move_range(cell_range='AR1:AR' + str(rows), cols=-43)
-ws.cell(1, 1).value = 'Store'                             # Column A
+ws.cell(1, 1).value = 'Store'  # Column A
 ws.move_range(cell_range='AC1:AC' + str(rows), cols=-27)  # Column B
 ws.move_range(cell_range='AK1:AK' + str(rows), cols=-34)  # Column C
 ws.move_range(cell_range='AS1:AS' + str(rows), cols=-41)
-ws.cell(1, 4).value = 'Customer Paid'                     # Column D
+ws.cell(1, 4).value = 'Customer Paid'  # Column D
 ws.move_range(cell_range='AJ1:AJ' + str(rows), cols=-31)
-ws.cell(1, 5).value = 'Postage Paid'                      # Column E
+ws.cell(1, 5).value = 'Postage Paid'  # Column E
 ws.move_range(cell_range='AT1:AT' + str(rows), cols=-40)
-ws.cell(1, 6).value = 'Profit/Unit'                       # Column F
+ws.cell(1, 6).value = 'Profit/Unit'  # Column F
 ws.move_range(cell_range='AQ1:AQ' + str(rows), cols=-36)  # Column G
 ws.move_range(cell_range='AB1:AB' + str(rows), cols=-20)  # Column H
 ws.move_range(cell_range='AA1:AA' + str(rows), cols=-18)  # Column I
 ws.move_range(cell_range='AG1:AG' + str(rows), cols=-23)  # Column J
 ws.move_range(cell_range='AD1:AD' + str(rows), cols=-19)  # Column K
-ws.move_range(cell_range='Z1:Z' + str(rows), cols=-14)    # Column L
+ws.move_range(cell_range='Z1:Z' + str(rows), cols=-14)  # Column L
 ws.move_range(cell_range='AE1:AE' + str(rows), cols=-18)  # Column M
 ws.move_range(cell_range='AF1:AF' + str(rows), cols=-18)  # Column N
-ws.move_range(cell_range='X1:X' + str(rows), cols=-9)     # Column O
+ws.move_range(cell_range='X1:X' + str(rows), cols=-9)  # Column O
 ws.move_range(cell_range='AH1:AH' + str(rows), cols=-18)  # Column P
-ws.move_range(cell_range='Y1:Y' + str(rows), cols=-8)     # Column Q
+ws.move_range(cell_range='Y1:Y' + str(rows), cols=-8)  # Column Q
 ws.move_range(cell_range='AI1:AI' + str(rows), cols=-17)  # Column R
 ws.move_range(cell_range='AL1:AL' + str(rows), cols=-19)  # Column S
 ws.move_range(cell_range='AM1:AM' + str(rows), cols=-19)  # Column T
@@ -78,10 +78,10 @@ while i <= rows:
     soup = BeautifulSoup(html, 'html.parser')
     try:
         store = soup.select('.message-Wl5p7I-')[0].getText()
-        ws.cell(i, 1).value = str(store)                                                        # Column A
+        ws.cell(i, 1).value = str(store)  # Column A
         total = soup.select('.currency-column-value-1VfNyxR')[0].getText()
-        ws.cell(i, 4).value = str(total)                                                        # Column D
-        ws.cell(i, 4).value = '$' + str(float(ws.cell(i, 4).value[1:]) - ws.cell(i, 5).value)   # Column F
+        ws.cell(i, 4).value = str(total)  # Column D
+        ws.cell(i, 4).value = '$' + str(float(ws.cell(i, 4).value[1:]) - ws.cell(i, 5).value)  # Column F
         driver.find_elements_by_class_name('checkbox-CUegX-s')[0].click()
         driver.find_element_by_xpath("//div[contains(text(), 'Edit Tags')]").click()
         driver.find_element_by_xpath("//span[contains(text(), 'AUDITED')]").click()
