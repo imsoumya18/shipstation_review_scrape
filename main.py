@@ -66,7 +66,6 @@ input('loaded?')
 driver.find_elements_by_class_name('advanced-search-text-6ODW4Fd')[0].click()
 
 # Filling the columns
-# Column D
 i = 2
 while i <= rows:
     driver.find_elements_by_class_name('flex-input-3IbU2o7')[0].clear()
