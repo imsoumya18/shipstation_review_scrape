@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 import time
 
 # Taking inputs
+date = input('Enter date in the format(mm-dd-yyyy):')
+inv = input('Enter invoice no(without #): ')
 old = input('Enter the name of the excel file to be modified: ')
 
 # Loading the file
@@ -69,10 +71,12 @@ i = 2
 while i <= rows:
     driver.find_elements_by_class_name('flex-input-3IbU2o7')[0].clear()
     driver.find_elements_by_class_name('flex-input-3IbU2o7')[0].send_keys(str(ws.cell(i, 2).value))
-    date_old = str(ws.cell(i, 12).value)[0:10]
-    date_new = date_old[5:7] + '/' + date_old[8:10] + '/' + date_old[0:4]
+    driver.find_elements_by_id('ef1caaed-8e57-f0f4-17ae-ebf20af5bd20')[0].clear()
+    driver.find_elements_by_id('ef1caaed-8e57-f0f4-17ae-ebf20af5bd20')[0].send_keys(str(ws.cell(i, 3).value))
+    # date_old = str(ws.cell(i, 12).value)[0:10]
+    # date_new = date_old[5:7] + '/' + date_old[8:10] + '/' + date_old[0:4]
     driver.find_elements_by_class_name('full-width-input-3F2-Knx')[0].clear()
-    driver.find_elements_by_class_name('full-width-input-3F2-Knx')[0].send_keys(date_new)
+    # driver.find_elements_by_class_name('full-width-input-3F2-Knx')[0].send_keys(date_new)
     driver.find_elements_by_id('advanced-search-submit-button')[0].click()
     time.sleep(1)
     html = driver.page_source
@@ -93,4 +97,4 @@ while i <= rows:
     i += 1
 
 # Save the file
-wb.save('New.xlsx')
+wb.save('GLOBEGISTICS ' + date + ' - INVOICE ' + inv + '.xlsx')
