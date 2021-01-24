@@ -86,6 +86,7 @@ while i <= rows:
         driver.find_elements_by_class_name('checkbox-CUegX-s')[0].click()
         driver.find_element_by_xpath("//div[contains(text(), 'Edit Tags')]").click()
         driver.find_element_by_xpath("//span[contains(text(), 'AUDITED')]").click()
+        time.sleep(1)
     except:
         i += 1
         continue
