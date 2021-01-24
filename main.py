@@ -63,7 +63,7 @@ driver = webdriver.Chrome('chromedriver.exe')
 driver.get('https://ss.shipstation.com/')
 input('Hit "ENTER" after you have successfully logged in: ')
 driver.get('https://ship6.shipstation.com/orders/awaiting-shipment')
-time.sleep(30)
+input('loaded?')
 driver.find_elements_by_class_name('advanced-search-text-6ODW4Fd')[0].click()
 
 # Filling the columns
@@ -86,8 +86,8 @@ while i <= rows:
         store = soup.select('.message-Wl5p7I-')[0].getText()
         ws.cell(i, 1).value = str(store)                                                       # Column A
         total = soup.select('.currency-column-value-1VfNyxR')[0].getText()
-        ws.cell(i, 4).value = str(total)                                                       # Column D
-        ws.cell(i, 4).value = '$' + str(float(ws.cell(i, 4).value[1:]) - ws.cell(i, 5).value)  # Column F
+        ws.cell(i, 4).value = float(str(total)[1:])                                            # Column D
+        ws.cell(i, 4).value = ws.cell(i, 4).value - ws.cell(i, 5).value                        # Column F
         driver.find_elements_by_class_name('checkbox-CUegX-s')[0].click()
         driver.find_element_by_xpath("//div[contains(text(), 'Edit Tags')]").click()
         driver.find_element_by_xpath("//span[contains(text(), 'AUDITED')]").click()
@@ -96,6 +96,19 @@ while i <= rows:
         i += 1
         continue
     i += 1
+
+# Sum
+ws.cell(rows+1, 3).value = 'Totals'
+ws.cell(rows+1, 4).value = '=SUM(D2:D' + str(rows) + ')'
+ws.cell(rows+1, 5).value = '=SUM(E2:E' + str(rows) + ')'
+ws.cell(rows+1, 6).value = '=AVERAGE(F2:F' + str(rows) + ')'
+ws.cell(rows+2, 4).value = '-E' + str(rows+1)
+ws.cell(rows+4, 3).value = 'Gross profit'
+ws.cell(rows+4, 4).value = '=SUM(D' + str(rows+1) + ':D' + str(rows+2) + ')'
+ws.cell(rows+6, 3).value = 'Gross profit per parcel'
+ws.cell(rows+6, 4).value = '=D' + str(rows+4) +'/77'
+ws.cell(rows+8, 3).value = 'MARGIN'
+ws.cell(rows+8, 4).value = '=D' + str(rows+4) + '/D' + str(rows+1)
 
 # Save the file
 wb.save('GLOBEGISTICS ' + date + ' - INVOICE ' + inv + '.xlsx')
