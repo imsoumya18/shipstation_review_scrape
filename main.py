@@ -1,4 +1,5 @@
 import openpyxl
+from openpyxl.styles import Font
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import time
@@ -83,9 +84,9 @@ while i <= rows:
     soup = BeautifulSoup(html, 'html.parser')
     try:
         store = soup.select('.message-Wl5p7I-')[0].getText()
-        ws.cell(i, 1).value = str(store)  # Column A
+        ws.cell(i, 1).value = str(store)                                                       # Column A
         total = soup.select('.currency-column-value-1VfNyxR')[0].getText()
-        ws.cell(i, 4).value = str(total)  # Column D
+        ws.cell(i, 4).value = str(total)                                                       # Column D
         ws.cell(i, 4).value = '$' + str(float(ws.cell(i, 4).value[1:]) - ws.cell(i, 5).value)  # Column F
         driver.find_elements_by_class_name('checkbox-CUegX-s')[0].click()
         driver.find_element_by_xpath("//div[contains(text(), 'Edit Tags')]").click()
