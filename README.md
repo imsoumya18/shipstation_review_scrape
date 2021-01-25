@@ -1,6 +1,6 @@
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
-# shipstation_invoice_review
+# shipstation_review_scrape
 An automation script to automate browser that will review invoices from given excel sheet
 
 Steps:
