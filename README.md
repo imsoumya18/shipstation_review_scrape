@@ -8,8 +8,6 @@ Steps:
 2. When login page opens inautomated browser login by entering username and password and solve the captcha.
 3. Captcha may not appear in some cases. You have to rerun the script again as it detects bot and refuses to allow it accessing the website.
 
-
-
 I got this project from Nicolas Troplent on Upwork. Thanks to him.
 
-
+![forthebadge made-by-soumya](https://img.shields.io/badge/CREATED_BY-SOUMYA-blue)
