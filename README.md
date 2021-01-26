@@ -15,8 +15,8 @@ An automation script to automate browser that will review invoices from given ex
 7. Now, it will do the rest automatically. You will get an excel file in the same folder named in the format **GLOBEGISTICS 12-20-2020 - INVOICE 2037471** for the above given example.
 
 ***Precautions:***
-8. Before running the script login to your Shipstation account and make sure **Show Sidebar** is enabled. Otherwise code will fail.
-9. Also, make sure **Store** column is enabled.
+1. Before running the script login to your Shipstation account and make sure **Show Sidebar** is enabled. Otherwise code will fail.
+2. Also, make sure **Store** column is enabled.
 
 In case of any problem mail me: <a href="mailto:soumyadeep184@gmail.com">soumyadeep184@gmail.com</a> 
 
