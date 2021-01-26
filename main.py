@@ -84,7 +84,8 @@ while i <= rows:
         # Column D
         ws.cell(i, 4).value = float(str(total)[1:])
         # Column F
-        ws.cell(i, 6).value = '=IF(M' + str(i) + '="COVID-19 Surcharge","covid surcharge",D' + str(i) + '-E' + str(i) + ')'
+        ws.cell(i, 6).value = '=IF(M' + str(i) + '="COVID-19 Surcharge","covid surcharge",D' + str(i) + '-E' + str(
+            i) + ')'
         driver.find_elements_by_class_name('grid-rows-1E9Z-Ar')[1].click()
         driver.find_element_by_xpath("//div[contains(text(), 'Edit Tags')]").click()
         driver.find_element_by_xpath("//span[contains(text(), 'AUDITED')]").click()
@@ -95,17 +96,17 @@ while i <= rows:
     i += 1
 
 # Sum
-ws.cell(rows+1, 3).value = 'Totals'
-ws.cell(rows+1, 4).value = '=SUM(D2:D' + str(rows) + ')'
-ws.cell(rows+1, 5).value = '=SUM(E2:E' + str(rows) + ')'
-ws.cell(rows+1, 6).value = '=AVERAGE(F2:F' + str(rows) + ')'
-ws.cell(rows+2, 4).value = '=-E' + str(rows+1)
-ws.cell(rows+4, 3).value = 'Gross profit'
-ws.cell(rows+4, 4).value = '=SUM(D' + str(rows+1) + ':D' + str(rows+2) + ')'
-ws.cell(rows+6, 3).value = 'Gross profit per parcel'
-ws.cell(rows+6, 4).value = '=D' + str(rows+4) +'/77'
-ws.cell(rows+8, 3).value = 'MARGIN'
-ws.cell(rows+8, 4).value = '=D' + str(rows+4) + '/D' + str(rows+1)
+ws.cell(rows + 1, 3).value = 'Totals'
+ws.cell(rows + 1, 4).value = '=SUM(D2:D' + str(rows) + ')'
+ws.cell(rows + 1, 5).value = '=SUM(E2:E' + str(rows) + ')'
+ws.cell(rows + 1, 6).value = '=AVERAGE(F2:F' + str(rows) + ')'
+ws.cell(rows + 2, 4).value = '=-E' + str(rows + 1)
+ws.cell(rows + 4, 3).value = 'Gross profit'
+ws.cell(rows + 4, 4).value = '=SUM(D' + str(rows + 1) + ':D' + str(rows + 2) + ')'
+ws.cell(rows + 6, 3).value = 'Gross profit per parcel'
+ws.cell(rows + 6, 4).value = '=D' + str(rows + 4) + '/77'
+ws.cell(rows + 8, 3).value = 'MARGIN'
+ws.cell(rows + 8, 4).value = '=D' + str(rows + 4) + '/D' + str(rows + 1)
 
 # Setting each column width to 30
 i = 'A'
