@@ -3,7 +3,7 @@
 # Shipstation Review & Scrape
 An automation script to automate browser that will review invoices from given excel sheet
 
-***👉Steps:***
+***Steps:***
 1. Keep the file you want to modify in the same folder as the main.py is in.
    For example here it is **2032442-FDBackup.xlsx** included. Replace that with your original file.
 2. After running the script it will first ask for date. Enter it in **dd-mm-yyyy** format (e.g. 12-20-2020 for 20th December, 2020).
@@ -14,7 +14,7 @@ An automation script to automate browser that will review invoices from given ex
 6. Now, it will be automatically logged in in a few seconds. In this time come back to your code. There it will say to click ENTER after **page has completely loaded**. Remember, **the loading wheel must have vanished and the list of all records must be loaded and then only you have to hit ENTER**.
 7. Now, it will do the rest automatically. You will get an excel file in the same folder named in the format **GLOBEGISTICS 12-20-2020 - INVOICE 2037471** for the above given example.
 
-***👉Precautions:***
+***Precautions:***
 1. Before running the script login to your Shipstation account and make sure **Show Sidebar** is enabled. Otherwise code will fail.
 2. Also, make sure **Store** column is enabled.
 3. Last but not the least, make sure you have a **stable internet connection**. Otherwise, the script may fail.
