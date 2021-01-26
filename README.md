@@ -17,6 +17,7 @@ An automation script to automate browser that will review invoices from given ex
 ***Precautions:***
 1. Before running the script login to your Shipstation account and make sure **Show Sidebar** is enabled. Otherwise code will fail.
 2. Also, make sure **Store** column is enabled.
+3. Last but not the least, make sure you have a **stable internet connection**. Otherwise, the script may fail.
 
 In case of any problem mail me: <a href="mailto:soumyadeep184@gmail.com">soumyadeep184@gmail.com</a> 
 
