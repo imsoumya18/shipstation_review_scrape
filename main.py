@@ -51,6 +51,7 @@ ws.move_range(cell_range='AM1:AM' + str(rows), cols=-19)  # Column T
 ws.move_range(cell_range='AN1:AN' + str(rows), cols=-19)  # Column U
 ws.move_range(cell_range='AO1:AO' + str(rows), cols=-19)  # Column V
 ws.move_range(cell_range='AP1:AP' + str(rows), cols=-19)  # Column W
+ws.cell(1, 24).value = 'AUDITED or not'
 
 # Deleting remaining columns
 ws.delete_cols(47, 2)
@@ -89,8 +90,13 @@ while i <= rows:
         ws.cell(i, 6).value = '=IF(M' + str(i) + '="COVID-19 Surcharge","covid surcharge",D' + str(i) + '-E' + str(
             i) + ')'
         driver.find_elements_by_class_name('grid-rows-1E9Z-Ar')[1].click()
-        driver.find_element_by_xpath("//div[contains(text(), 'Edit Tags')]").click()
-        driver.find_element_by_xpath("//span[contains(text(), 'AUDITED')]").click()
+        time.sleep(0.5)
+        try:
+            driver.find_element_by_xpath("//span[contains(text(), 'AUDITED')]")
+            ws.cell(i, 24).value = 'AUDITED'
+        except:
+            driver.find_element_by_xpath("//div[contains(text(), 'Edit Tags')]").click()
+            driver.find_element_by_xpath("//span[contains(text(), 'AUDITED')]").click()
         time.sleep(1)
     except:
         i += 1
