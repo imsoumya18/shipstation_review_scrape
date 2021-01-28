@@ -83,6 +83,8 @@ while i <= rows:
         total = soup.select('.currency-column-value-1VfNyxR')[0].getText()
         # Column D
         ws.cell(i, 4).value = float(str(total)[1:])
+        if ws.cell(i, 13).value == 'COVID-19 Surcharge':
+            ws.cell(i, 4).value = 0
         # Column F
         ws.cell(i, 6).value = '=IF(M' + str(i) + '="COVID-19 Surcharge","covid surcharge",D' + str(i) + '-E' + str(
             i) + ')'
