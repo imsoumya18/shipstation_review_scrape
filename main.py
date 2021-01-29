@@ -78,15 +78,15 @@ while i <= rows:
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
     try:
-        store = soup.select('.message-Wl5p7I-')[0].getText()
         # Column A
+        store = soup.select('.message-Wl5p7I-')[0].getText()
         ws.cell(i, 1).value = str(store)
-        total = soup.select('.currency-column-value-1VfNyxR')[0].getText()
         # Column D
+        total = soup.select('.currency-column-value-1VfNyxR')[0].getText()
         ws.cell(i, 4).value = float(str(total)[1:])
+        # Column F
         if ws.cell(i, 13).value == 'COVID-19 Surcharge':
             ws.cell(i, 4).value = 0
-        # Column F
         ws.cell(i, 6).value = '=IF(M' + str(i) + '="COVID-19 Surcharge","covid surcharge",D' + str(i) + '-E' + str(
             i) + ')'
         driver.find_elements_by_class_name('grid-rows-1E9Z-Ar')[1].click()
