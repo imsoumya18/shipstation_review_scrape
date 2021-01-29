@@ -90,10 +90,11 @@ while i <= rows:
         ws.cell(i, 6).value = '=IF(M' + str(i) + '="COVID-19 Surcharge","covid surcharge",D' + str(i) + '-E' + str(
             i) + ')'
         driver.find_elements_by_class_name('grid-rows-1E9Z-Ar')[1].click()
-        time.sleep(0.5)
+        time.sleep(1)
         try:
             driver.find_element_by_xpath("//span[contains(text(), 'AUDITED')]")
             ws.cell(i, 24).value = 'AUDITED'
+            ws.cell(i, 4).value = 0
         except:
             driver.find_element_by_xpath("//div[contains(text(), 'Edit Tags')]").click()
             driver.find_element_by_xpath("//span[contains(text(), 'AUDITED')]").click()
