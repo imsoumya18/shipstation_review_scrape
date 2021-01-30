@@ -51,7 +51,7 @@ ws.move_range(cell_range='AM1:AM' + str(rows), cols=-19)  # Column T
 ws.move_range(cell_range='AN1:AN' + str(rows), cols=-19)  # Column U
 ws.move_range(cell_range='AO1:AO' + str(rows), cols=-19)  # Column V
 ws.move_range(cell_range='AP1:AP' + str(rows), cols=-19)  # Column W
-ws.cell(1, 24).value = 'AUDITED or not'
+ws.cell(1, 24).value = 'Already AUDITED or not'
 
 # Deleting remaining columns
 ws.delete_cols(47, 2)
@@ -90,14 +90,15 @@ while i <= rows:
         ws.cell(i, 6).value = '=IF(M' + str(i) + '="COVID-19 Surcharge","covid surcharge",D' + str(i) + '-E' + str(
             i) + ')'
         driver.find_elements_by_class_name('grid-rows-1E9Z-Ar')[1].click()
-        time.sleep(1)
-        try:
-            driver.find_element_by_xpath("//span[contains(text(), 'AUDITED')]")
-            ws.cell(i, 24).value = 'AUDITED'
+        driver.find_element_by_xpath("//div[contains(text(), 'Edit Tags')]").click()
+        time.sleep(0.5)
+        if driver.find_element_by_xpath('//button[@class="button-unstyled dropdown-menu-item-2NKgzjU dropdown-menu-item-1S4n1yj"][2]/div[1]/input[1]').is_enabled():
+            ws.cell(i, 24).value = 'Already AUDITED'
             ws.cell(i, 4).value = 0
-        except:
             driver.find_element_by_xpath("//div[contains(text(), 'Edit Tags')]").click()
+        else:
             driver.find_element_by_xpath("//span[contains(text(), 'AUDITED')]").click()
+            driver.find_element_by_xpath("//div[contains(text(), 'Edit Tags')]").click()
         time.sleep(1)
     except:
         i += 1
