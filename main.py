@@ -92,13 +92,12 @@ while i <= rows:
         driver.find_elements_by_class_name('grid-rows-1E9Z-Ar')[1].click()
         driver.find_element_by_xpath("//div[contains(text(), 'Edit Tags')]").click()
         time.sleep(0.5)
-        if driver.find_element_by_xpath('//button[@class="button-unstyled dropdown-menu-item-2NKgzjU dropdown-menu-item-1S4n1yj"][2]/div[1]/input[1]').is_enabled():
+        if driver.find_element_by_xpath('//button[@class="button-unstyled dropdown-menu-item-2NKgzjU dropdown-menu-item-1S4n1yj"][2]/div[1]/input[1]').is_selected():
             ws.cell(i, 24).value = 'Already AUDITED'
             ws.cell(i, 4).value = 0
             driver.find_element_by_xpath("//div[contains(text(), 'Edit Tags')]").click()
         else:
-            driver.find_element_by_xpath("//span[contains(text(), 'AUDITED')]").click()
-            driver.find_element_by_xpath("//div[contains(text(), 'Edit Tags')]").click()
+            driver.find_element_by_xpath("//button[@class='button-unstyled dropdown-menu-item-2NKgzjU dropdown-menu-item-1S4n1yj'][2]").click()
         time.sleep(1)
     except:
         i += 1
