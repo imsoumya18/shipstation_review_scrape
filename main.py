@@ -98,7 +98,7 @@ while i <= rows:
             driver.find_element_by_xpath("//div[contains(text(), 'Edit Tags')]").click()
         else:
             driver.find_element_by_xpath("//button[@class='button-unstyled dropdown-menu-item-2NKgzjU dropdown-menu-item-1S4n1yj'][2]").click()
-        time.sleep(1)
+        time.sleep(2)
     except:
         i += 1
         continue
